@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cesdxlqa0ag5r"]
+
+[ext_resource type="PackedScene" uid="uid://dbd1wqwtpukyn" path="res://assets/scenes/characters/randomCharacter.tscn" id="1_enlfk"]
+
+[node name="3DTEST" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0826783, 0.0976849, 0.0551128)
+
+[node name="Perso" parent="." instance=ExtResource("1_enlfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301502, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.100186, -0.43226, 0.896167, 0, 0.900698, 0.434445, -0.994969, -0.0435252, 0.0902371, 2.17124, 3.34731, 0.0883589)
