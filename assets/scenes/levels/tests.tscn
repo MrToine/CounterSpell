@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8vjok38weo75"]
 
-[ext_resource type="PackedScene" uid="uid://dh4b34bi12sf0" path="res://assets/models/characters/RandomCharacter/Perso.dae" id="1_ere6b"]
+[ext_resource type="PackedScene" uid="uid://bph0xl52gmkcp" path="res://assets/models/characters/RandomCharacter/Perso.glb" id="1_1vvtf"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Perso" parent="." instance=ExtResource("1_ere6b")]
-transform = Transform3D(-0.991218, 0, 0.132239, 0, 1, 0, -0.132239, 0, -0.991218, -0.90443, 0, -1.29616)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.276325, 0, -0.961064, 0, 1, 0, 0.961064, 0, 0.276325, -8.09583, 0.276928, 0.985169)
+
+[node name="Perso" parent="." instance=ExtResource("1_1vvtf")]
+transform = Transform3D(-0.999793, 0, 0.0203666, 0, 1, 0, -0.0203666, 0, -0.999793, 0.198893, -4.76837e-07, 1.79914)
