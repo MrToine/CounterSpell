@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbd1wqwtpukyn"]
+[gd_scene load_steps=3 format=3 uid="uid://dbd1wqwtpukyn"]
 
 [ext_resource type="PackedScene" uid="uid://bph0xl52gmkcp" path="res://assets/models/characters/RandomCharacter/Perso.glb" id="1_vk5ck"]
+[ext_resource type="Script" path="res://scripts/characters/randomCharacter.gd" id="2_qcy5t"]
 
 [node name="Perso" instance=ExtResource("1_vk5ck")]
+script = ExtResource("2_qcy5t")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-0.389439, -0.36452, -5.87686e-08)
