@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cgqjor2ebxmxu"
-path="res://.godot/imported/tutoriel.gltf-01dce96561c7546748a43e82a2c2a7c0.scn"
+path="res://.godot/imported/tutoriel.gltf-b11102e41d0fc7d83032aef7736d01cd.scn"
 
 [deps]
 
-source_file="res://Prefab/tutoriel.gltf"
-dest_files=["res://.godot/imported/tutoriel.gltf-01dce96561c7546748a43e82a2c2a7c0.scn"]
+source_file="res://Scenes/Tutoriel/tutoriel.gltf"
+dest_files=["res://.godot/imported/tutoriel.gltf-b11102e41d0fc7d83032aef7736d01cd.scn"]
 
 [params]
 

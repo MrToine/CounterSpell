@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsxga0was8lou"]
+
+[ext_resource type="PackedScene" uid="uid://b53yyljxhpkwf" path="res://Assets/prefabs/training_area.tscn" id="1_g5yw6"]
+[ext_resource type="PackedScene" uid="uid://dleag821dvixv" path="res://Assets/prefabs/Player.tscn" id="2_4yyvj"]
+[ext_resource type="Material" uid="uid://ca8lii121g5y5" path="res://Assets/environment/sky_mat.tres" id="3_py5lr"]
+
+[sub_resource type="Sky" id="Sky_80t3v"]
+sky_material = ExtResource("3_py5lr")
+
+[sub_resource type="Environment" id="Environment_3k0db"]
+background_mode = 2
+sky = SubResource("Sky_80t3v")
+ambient_light_color = Color(1, 0.565067, 0.413045, 1)
+ambient_light_sky_contribution = 0.5
+ambient_light_energy = 0.5
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.2
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 6.0
+ssao_detail = 1.52
+ssao_sharpness = 0.67
+glow_enabled = true
+glow_intensity = 2.7
+glow_strength = 1.33
+glow_bloom = 0.01
+fog_enabled = true
+fog_light_color = Color(0.648214, 0.825697, 1, 1)
+fog_light_energy = 0.4
+fog_density = 0.005
+fog_sky_affect = 0.0
+fog_height = 1.0
+fog_height_density = 0.25
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[node name="Scene01" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3k0db")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.344643, -0.158074, 0.925329, -0.4169, 0.908953, 0, -0.84108, -0.385769, -0.379165, 14.1649, 2.36826, 0)
+light_color = Color(0.993776, 1, 0.740939, 1)
+shadow_enabled = true
+shadow_bias = 0.021
+shadow_normal_bias = 1.644
+shadow_blur = 2.0
+directional_shadow_blend_splits = true
+
+[node name="TrainingArea" parent="." instance=ExtResource("1_g5yw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367388, 0)
+
+[node name="PlayerCtrl" parent="." instance=ExtResource("2_4yyvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.441503, 0.672082, -0.800442)
+mouseSensivity = 0.2
+speed = 1.0
+extraSpeed = 1.0
+
+[node name="Skeleton3D" parent="PlayerCtrl/PlayerBase/Armature" index="0"]
+bones/1/position = Vector3(-3.18157e-07, -2.47499e-07, 1.33403)
+bones/1/rotation = Quaternion(0.672692, -1.09323e-07, 3.73956e-08, 0.739923)
+bones/2/rotation = Quaternion(0.0889262, 1.50194e-07, 2.37691e-08, 0.996038)
+bones/3/rotation = Quaternion(0.0856282, -9.65414e-08, 1.5154e-08, 0.996327)
+bones/4/rotation = Quaternion(-0.79788, -0.134989, 0.587109, -0.0216665)
+bones/5/rotation = Quaternion(0.21394, -0.671056, 0.325952, 0.63061)
+bones/6/rotation = Quaternion(0.839806, -0.243989, 0.483661, -0.0355878)
+bones/7/rotation = Quaternion(0.203043, 0.677001, -0.309349, 0.636197)
+bones/8/rotation = Quaternion(1.52218e-07, 0.152533, 0.988298, -1.45205e-06)
+bones/9/rotation = Quaternion(1.30723e-06, 0.976979, -0.213336, 5.97651e-06)
+bones/10/rotation = Quaternion(-0.673907, 3.88231e-07, 1.46881e-06, 0.738816)
+bones/11/rotation = Quaternion(1.4183e-07, 0.0436518, 0.999047, 1.8027e-06)
+bones/12/rotation = Quaternion(-1.57229e-06, 0.965367, -0.260897, -6.53928e-06)
+bones/13/rotation = Quaternion(-0.781786, 7.31534e-07, -3.55143e-06, 0.623547)
+bones/14/position = Vector3(0.474366, 0.693628, 1.73215)
+bones/15/position = Vector3(0.299358, -0.118237, 1.33759)
+bones/15/rotation = Quaternion(-0.506752, -0.0168137, 0.861871, -0.00988582)
+bones/16/position = Vector3(0.0800732, -0.118005, 0.669868)
+bones/17/position = Vector3(0.0800731, -0.344754, 1.02035)
+bones/17/rotation = Quaternion(-1.19209e-07, 1.96765e-16, 1, -2.17554e-23)
+bones/18/position = Vector3(-0.102058, 0.0594601, 0.669868)
+bones/19/position = Vector3(-0.474367, 0.358288, 1.73215)
+bones/20/position = Vector3(-0.33595, 0.00251283, 1.32707)
+bones/20/rotation = Quaternion(-0.506753, -0.0168137, 0.861871, -0.00988585)
+bones/21/position = Vector3(-0.102058, -0.344754, 1.02035)
+
+[editable path="PlayerCtrl"]
+[editable path="PlayerCtrl/PlayerBase"]

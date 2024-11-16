@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4lj1yei48esy"
-path.s3tc="res://.godot/imported/Colors_albedo005.png-70291f1a300201a94adba55342adf34d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Colors_albedo005.png-acdaa1165e17c29a850a6cdac14f88f7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Prefab/textures/Colors_albedo005.png"
-dest_files=["res://.godot/imported/Colors_albedo005.png-70291f1a300201a94adba55342adf34d.s3tc.ctex"]
+source_file="res://Scenes/Tutoriel/textures/Colors_albedo005.png"
+dest_files=["res://.godot/imported/Colors_albedo005.png-acdaa1165e17c29a850a6cdac14f88f7.s3tc.ctex"]
 
 [params]
 
