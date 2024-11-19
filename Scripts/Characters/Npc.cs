@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Npc : Node
+public partial class Npc : Character
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
