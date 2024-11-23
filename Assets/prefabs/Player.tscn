@@ -20,7 +20,7 @@ animationPlayer = NodePath("PlayerBase/AnimationPlayer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CamPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 0.0751953)
 spring_length = 0.5
 margin = 0.1
 
@@ -55,10 +55,14 @@ bones/12/rotation = Quaternion(-1.57229e-06, 0.965367, -0.260897, -6.53928e-06)
 bones/13/rotation = Quaternion(-0.781786, 7.31534e-07, -3.55143e-06, 0.623547)
 bones/14/position = Vector3(0.474366, 0.693628, 1.73215)
 bones/15/position = Vector3(0.299358, -0.118237, 1.33759)
+bones/15/rotation = Quaternion(-0.506752, -0.0168137, 0.861871, -0.00988582)
 bones/16/position = Vector3(0.0800732, -0.118005, 0.669868)
 bones/17/position = Vector3(0.0800731, -0.344754, 1.02035)
+bones/17/rotation = Quaternion(-1.19209e-07, 1.96765e-16, 1, -2.17554e-23)
 bones/18/position = Vector3(-0.102058, 0.0594601, 0.669868)
+bones/19/position = Vector3(-0.474367, 0.358288, 1.73215)
 bones/20/position = Vector3(-0.33595, 0.00251283, 1.32707)
+bones/20/rotation = Quaternion(-0.506753, -0.0168137, 0.861871, -0.00988585)
 bones/21/position = Vector3(-0.102058, -0.344754, 1.02035)
 
 [editable path="PlayerBase"]
