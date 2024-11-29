@@ -21,6 +21,8 @@ public partial class Player : Character
 
 	[Export]Node3D cameraPivot;
 	[Export]Camera3D camera;
+	
+	private string currentAnimation = "";
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -66,19 +68,19 @@ public partial class Player : Character
 
 		if(Input.IsActionPressed("move_up")) {
 			GD.Print("move_up");
-			direction += Transform.Basis.Z;
+			direction -= Transform.Basis.Z;
 		}
 		if(Input.IsActionPressed("move_down")) {
 			GD.Print("move_down");
-			direction -= Transform.Basis.Z;
+			direction += Transform.Basis.Z;
 		}
 		if(Input.IsActionPressed("move_left")) {
 			GD.Print("move_left");
-			direction += Transform.Basis.X;
+			direction -= Transform.Basis.X;
 		}
 		if(Input.IsActionPressed("move_right")) {
 			GD.Print("move_right");
-			direction -= Transform.Basis.X;
+			direction += Transform.Basis.X;
 		}
 
 		// if(Input.IsActionPressed("run")) {
@@ -122,5 +124,17 @@ public partial class Player : Character
 		}else if(direction == new Vector3(0, 0, 0) && IsOnFloor()) {
 			animationPlayer.Play("Inactif");
 		}
+	}
+
+	private void PlayerAnimation(string animationName) {
+		if(currentAnimation == animationName && this.animationPlayer.IsPlaying()) {
+			return;
+		}
+
+		currentAnimation = animationName;
+		 // Joue directement l'animation en boucle
+		animationPlayer.Play(animationName);
+		// Force le mode de lecture en boucle
+		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
 	}
 }
