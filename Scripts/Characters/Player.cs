@@ -140,7 +140,6 @@ public partial class Player : Character
 		}
 	}
 
-<<<<<<< HEAD
 	private void Attack() {
 		GD.Print("Attaque");
 		if (!isAttacking) {
@@ -163,25 +162,19 @@ public partial class Player : Character
 		};
 	}
 
-=======
->>>>>>> 5221d84 (Add animationloop and fix camera with walk)
 	private void PlayerAnimation(string animationName) {
 		if(currentAnimation == animationName && this.animationPlayer.IsPlaying()) {
 			return;
 		}
-<<<<<<< HEAD
-=======
 
->>>>>>> 5221d84 (Add animationloop and fix camera with walk)
 		currentAnimation = animationName;
 		 // Joue directement l'animation en boucle
 		animationPlayer.Play(animationName);
 		// Force le mode de lecture en boucle
 		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
-<<<<<<< HEAD
+
 		// Définit la vitesse de l'animation
 		animationPlayer.SpeedScale = animationSpeed;
-=======
->>>>>>> 5221d84 (Add animationloop and fix camera with walk)
+
 	}
 }
