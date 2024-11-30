@@ -24,6 +24,8 @@ public partial class Player : Character
 
 	[Export]Node3D cameraPivot;
 	[Export]Camera3D camera;
+
+	private bool isAttacking = false;
 	
 	private string currentAnimation = "";
 
@@ -47,6 +49,7 @@ public partial class Player : Character
 
 	public override void _Input(InputEvent @event)
 	{
+		
 		if(@event is InputEventMouseMotion motionEvent)
 		{
 			/* Récupérer les mouvements de la souris pour orienter la caméra */
@@ -86,6 +89,10 @@ public partial class Player : Character
 			direction += Transform.Basis.X;
 		}
 
+		if(Input.IsActionJustPressed("attack")) {
+			Attack();
+		}
+
 		// if(Input.IsActionPressed("run")) {
 		// 	this.extraSpeed = 3f;
 		// }else{
@@ -122,19 +129,41 @@ public partial class Player : Character
 		// 	//GD.Print("Collided with: ", (Node)collision.GetCollider());
 		// }
 
-		if(direction != new Vector3(0,0,0) && IsOnFloor()) {
-			PlayerAnimation("Marche");
-		}else if(direction == new Vector3(0, 0, 0) && IsOnFloor()) {
-			animationPlayer.Play("Inactif");
+		if(!isAttacking) {
+			if(direction != new Vector3(0,0,0) && IsOnFloor()) {
+				PlayerAnimation("Marche");
+			}else if(direction == new Vector3(0, 0, 0) && IsOnFloor()) {
+				animationPlayer.Play("Inactif");
+			}
 		}
+	}
+
+	private void Attack() {
+		GD.Print("Attaque");
+		if (!isAttacking) {
+			GD.Print("prêt à attaquer");
+			isAttacking = true;
+			PlayerAttackAnimation();
+		}
+	}
+
+	private void PlayerAttackAnimation() {
+		GD.Print("Animation Attaque");
+		currentAnimation = "Attaque";
+		animationPlayer.Play("Attaque");
+		animationPlayer.GetAnimation("Attaque").LoopMode = Animation.LoopModeEnum.Linear;
+		
+		// Attendre la fin de l'animation avant de permettre à nouveau les attaques
+		var timer = GetTree().CreateTimer(animationPlayer.GetAnimation("Attaque").Length);
+		timer.Timeout += () => {
+			isAttacking = false;
+		};
 	}
 
 	private void PlayerAnimation(string animationName) {
 		if(currentAnimation == animationName && this.animationPlayer.IsPlaying()) {
 			return;
 		}
-
-		GD.Print("Animation speed: ", animationSpeed);
 		currentAnimation = animationName;
 		 // Joue directement l'animation en boucle
 		animationPlayer.Play(animationName);
