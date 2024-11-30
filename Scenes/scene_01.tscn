@@ -55,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367388, 0)
 [node name="PlayerCtrl" parent="." instance=ExtResource("2_4yyvj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.441503, 0.672082, -0.800442)
 mouseSensivity = 0.2
+animationSpeed = 2.0
 speed = 1.0
 extraSpeed = 1.0
 

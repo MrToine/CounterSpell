@@ -19,6 +19,9 @@ public partial class Player : Character
 	[Export(PropertyHint.Range, "0,90,1")]
 	float maxPitch = 90f;  // Inclinaison maximale (pitch), valeur par défaut 90
 
+	[Export(PropertyHint.Range, "0.5,50.0")]
+	float animationSpeed = 1.0f;
+
 	[Export]Node3D cameraPivot;
 	[Export]Camera3D camera;
 	
@@ -120,7 +123,7 @@ public partial class Player : Character
 		// }
 
 		if(direction != new Vector3(0,0,0) && IsOnFloor()) {
-			animationPlayer.Play("Marche");
+			PlayerAnimation("Marche");
 		}else if(direction == new Vector3(0, 0, 0) && IsOnFloor()) {
 			animationPlayer.Play("Inactif");
 		}
@@ -131,10 +134,13 @@ public partial class Player : Character
 			return;
 		}
 
+		GD.Print("Animation speed: ", animationSpeed);
 		currentAnimation = animationName;
 		 // Joue directement l'animation en boucle
 		animationPlayer.Play(animationName);
 		// Force le mode de lecture en boucle
 		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
+		// Définit la vitesse de l'animation
+		animationPlayer.SpeedScale = animationSpeed;
 	}
 }
