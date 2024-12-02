@@ -24,6 +24,8 @@ public partial class Player : Character
 
 	[Export]Node3D cameraPivot;
 	[Export]Camera3D camera;
+	
+	private string currentAnimation = "";
 
 	private bool isAttacking = false;
 	
@@ -171,5 +173,17 @@ public partial class Player : Character
 		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
 		// Définit la vitesse de l'animation
 		animationPlayer.SpeedScale = animationSpeed;
+	}
+
+	private void PlayerAnimation(string animationName) {
+		if(currentAnimation == animationName && this.animationPlayer.IsPlaying()) {
+			return;
+		}
+
+		currentAnimation = animationName;
+		 // Joue directement l'animation en boucle
+		animationPlayer.Play(animationName);
+		// Force le mode de lecture en boucle
+		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
 	}
 }
