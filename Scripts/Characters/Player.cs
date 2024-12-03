@@ -177,16 +177,4 @@ public partial class Player : Character
 		animationPlayer.SpeedScale = animationSpeed;
 
 	}
-
-	private void PlayerAnimation(string animationName) {
-		if(currentAnimation == animationName && this.animationPlayer.IsPlaying()) {
-			return;
-		}
-
-		currentAnimation = animationName;
-		 // Joue directement l'animation en boucle
-		animationPlayer.Play(animationName);
-		// Force le mode de lecture en boucle
-		animationPlayer.GetAnimation(animationName).LoopMode = Animation.LoopModeEnum.Linear;
-	}
 }
