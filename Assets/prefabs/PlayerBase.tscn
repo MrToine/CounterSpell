@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpqwq4i065a0i"]
 
-[ext_resource type="PackedScene" uid="uid://dx5yq34a2wt15" path="res://Assets/3d_models/Personnage/Personnage_Godot.glb" id="1_fjsd7"]
+[ext_resource type="PackedScene" uid="uid://dx5yq34a2wt15" path="res://Assets/3d_models/Character/Personnage_Godot.glb" id="1_fjsd7"]
 
 [node name="Player" instance=ExtResource("1_fjsd7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.123543)
