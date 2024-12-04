@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsxga0was8lou"]
 
 [ext_resource type="PackedScene" uid="uid://dleag821dvixv" path="res://Assets/prefabs/Player.tscn" id="1_4v46x"]
-[ext_resource type="PackedScene" uid="uid://bc20015i3tufh" path="res://Scenes/ile_prefab.tscn" id="4_g2sfm"]
-[ext_resource type="PackedScene" uid="uid://0qmu46vy6uka" path="res://Assets/3d_models/Ennemy/ManaGolem/ManaGolem.tscn" id="5_ncxvy"]
+[ext_resource type="PackedScene" uid="uid://bc20015i3tufh" path="res://Assets/prefabs/Maps/ile_prefab.tscn" id="4_g2sfm"]
+[ext_resource type="PackedScene" uid="uid://0qmu46vy6uka" path="res://Assets/3d_models/Enemies/ManaGolem/ManaGolem.tscn" id="5_ncxvy"]
 [ext_resource type="PackedScene" uid="uid://bgxbikwaq2ohk" path="res://Assets/Spells/EarthQuake/Earth_Quake.tscn" id="6_8hvfd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75ufa"]
@@ -64,13 +64,38 @@ extraSpeed = 1.0
 [node name="CollisionShape3D" parent="PlayerCtrl" index="1"]
 transform = Transform3D(0.856501, 0, 0.516145, 0, 1, 0, -0.516145, 0, 0.856501, 0.00412202, 0.101453, 0)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("5_ncxvy")]
-transform = Transform3D(0.769065, 0, -0.639171, 0, 1, 0, 0.639171, 0, 0.769065, -2.00568, 0.651119, 1.32425)
+[node name="PlayerBase" parent="PlayerCtrl" index="3"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5.96046e-08, -0.111534, 0.123543)
 
-[node name="Earth_Quake" parent="." instance=ExtResource("6_8hvfd")]
-transform = Transform3D(0.774116, 0, -0.633043, 0, 1, 0, 0.633043, 0, 0.774116, -2.17749, 0.675433, 1.66671)
+[node name="Skeleton3D" parent="PlayerCtrl/PlayerBase/Armature" index="0"]
+bones/1/position = Vector3(-3.23943e-07, -1.78818e-07, 1.35873)
+bones/1/rotation = Quaternion(0.672692, -1.10529e-07, 2.64082e-08, 0.739923)
+bones/2/rotation = Quaternion(0.0889262, 1.40966e-07, 2.53e-08, 0.996038)
+bones/3/rotation = Quaternion(0.0856282, -8.55902e-08, 1.70626e-08, 0.996327)
+bones/4/rotation = Quaternion(-0.603884, -0.360258, 0.620982, -0.346294)
+bones/5/rotation = Quaternion(0.0387857, -0.726904, 0.0590924, 0.683092)
+bones/6/rotation = Quaternion(0.603884, -0.360258, 0.620982, 0.346294)
+bones/7/rotation = Quaternion(0.0387857, 0.726903, -0.0590924, 0.683092)
+bones/8/rotation = Quaternion(-5.07221e-06, -0.0131968, 0.999913, -9.32052e-08)
+bones/9/rotation = Quaternion(4.07555e-07, 0.997795, -0.0663738, 6.12845e-06)
+bones/10/rotation = Quaternion(-0.68312, -5.60521e-09, 1.40107e-06, 0.730306)
+bones/11/rotation = Quaternion(5.43106e-06, -0.0131968, 0.999913, 4.16073e-08)
+bones/12/rotation = Quaternion(-3.99754e-07, 0.997795, -0.0663738, -6.73426e-06)
+bones/13/rotation = Quaternion(-0.68312, -3.05745e-08, -1.85923e-06, 0.730306)
+bones/14/position = Vector3(0.474366, 0.358288, 1.73215)
+bones/15/position = Vector3(0.713292, 0.00251272, 1.59921)
+bones/16/position = Vector3(0.0800732, -4.27464e-09, 0.669867)
+bones/17/rotation = Quaternion(-1.19209e-07, 1.92179e-16, 1, -8.99301e-29)
+bones/18/position = Vector3(-0.102058, 5.43789e-09, 0.669867)
+bones/20/position = Vector3(-0.713293, 0.00251285, 1.59921)
 
-[node name="Skeleton3D" parent="Earth_Quake/Armature" index="0"]
+[node name="ManaGolem" parent="." instance=ExtResource("5_ncxvy")]
+transform = Transform3D(0.769065, 0, -0.639171, 0, 1, 0, 0.639171, 0, 0.769065, -2.00568, 0.542956, 1.32425)
+
+[node name="[ManaGolem]Earth_Quake" parent="." instance=ExtResource("6_8hvfd")]
+transform = Transform3D(0.774116, 0, -0.633043, 0, 1, 0, 0.633043, 0, 0.774116, -2.17749, 0.553638, 1.66671)
+
+[node name="Skeleton3D" parent="[ManaGolem]Earth_Quake/Armature" index="0"]
 bones/1/position = Vector3(0.180514, 5.33444, 0.159363)
 bones/2/position = Vector3(0.103021, 5.38365, 0.413394)
 bones/3/position = Vector3(-0.0828717, 5.23226, 0.0369234)
@@ -93,9 +118,9 @@ bones/19/position = Vector3(-0.100344, 2.04436, -0.294364)
 bones/20/position = Vector3(-0.194521, 3.81399, 0.296592)
 
 [node name="Ile_Prefab" parent="." instance=ExtResource("4_g2sfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360206, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0572805, -0.4709, -0.136242)
 
 [editable path="PlayerCtrl"]
 [editable path="PlayerCtrl/PlayerBase"]
-[editable path="CharacterBody3D"]
-[editable path="Earth_Quake"]
+[editable path="ManaGolem"]
+[editable path="[ManaGolem]Earth_Quake"]
