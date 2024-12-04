@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CounterSpell"
-run/main_scene="res://Assets/3d_models/Ennemy/ManaGolem/Mana_Golem.glb"
+run/main_scene="res://Scenes/scene_01.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
